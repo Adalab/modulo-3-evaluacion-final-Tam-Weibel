@@ -12,9 +12,8 @@ const CharacterList = ({ characters }) => {
           <h4 className='card__info--title'>{character.name}</h4>
           <p className='card__info--specs'>{character.species}</p>
         </div>
-        {/* <Character character={character} /> */}
         {/* // <Link to={`/character/${character.id}`}>
-        //   />
+        //   <Character character={character} />
         // </Link> */}
       </li>
     );
