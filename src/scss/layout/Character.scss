@@ -1,0 +1,24 @@
+.card {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 200px;
+  background-color: #C59E01;
+  &__img {
+    height: 270px;
+    width: 200px;
+    background-image: cover;
+  }
+  &__info {
+    padding: 10px;
+    &--title {
+      font-size: 16px;
+    }
+    &--specs {
+      font-size: 14px;
+    }
+  }
+  
+}

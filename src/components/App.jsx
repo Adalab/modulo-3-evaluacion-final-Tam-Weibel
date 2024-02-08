@@ -1,37 +1,56 @@
-import "../scss/App.scss"
+import '../scss/App.scss';
 import ls from '../services/localStorage';
-
-// Fichero src/components/App.jsx
-
-import { Route, Routes } from "react-router-dom";
+import getDataFromApi from '../services/api';
+import { Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Filters from './filters/Filters';
+import CharacterList from './characters/CharacterList';
+import Character from './characters/Character';
 
 const App = () => {
+  const [characters, setCharacters] = useState([]);
+  const [filterByName, setFilterByName] = useState('');
+  const [filterByHouse, setFilterByHouse] = useState('');
+  const [filteredCharacters, setFilteredCharacters] = useState([]);
+
+  useEffect(() => {
+    getDataFromApi().then((cleanData) => {
+      setCharacters(cleanData);
+    })
+  }, [])
+
+  const handleFilterByName= (value) => {
+    setFilterByName(value);
+  }  
+
+  const handleFilterByHouse= (value) => {
+    setFilterByHouse(value);
+  }  
+
   return (
-    <div>
-      <h2>Este título aparece siempre</h2>
+    <div className='main'>
+      <h2>Harry Potter!!!</h2>
 
       <Routes>
         <Route
-          path="/contacto"
+          path='/'
           element={
-            <h2>
-              Este título solo aparece cuando la usuaria entra en la página de
-              contacto
-            </h2>
+            <>
+              <Filters
+                handleFilterByName={handleFilterByName}
+                filterByName={filterByName}
+                handleFilterByHouse={handleFilterByHouse}
+                filterByHouse={filterByHouse}
+              />
+              <CharacterList characters={characters} />
+            </>
           }
         />
+        <Route
+          path='/character/:idCharacter'
+          element={<Character character={characters} />}
+        />
       </Routes>
-
-      <nav>
-        <ul>
-          <li>
-            <a href="/#/">Ir al inicio</a>
-          </li>
-          <li>
-            <a href="/#/contacto">Ir a contacto</a>
-          </li>
-        </ul>
-      </nav>
     </div>
   );
 };

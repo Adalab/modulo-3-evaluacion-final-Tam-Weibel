@@ -1,1 +1,13 @@
-@import 'core/reset'
+@import './core/Reset.scss';
+
+.main{
+    background-color: grey;
+    padding: 20px;
+}
+.cards{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
