@@ -7,7 +7,8 @@ const FilterByHouse = ({ handleFilterByHouse, filterByHouse }) => {
       <select
         type='text'
         id='house'
-        onChange={handleFilterByHouse}
+        onChange={(ev) => handleFilterByHouse(ev.target.value)}
+        value={filterByHouse}
         className='input'
       >
         <option value='Gryffindor'>Gryffindor</option>

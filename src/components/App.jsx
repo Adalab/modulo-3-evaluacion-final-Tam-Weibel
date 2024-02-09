@@ -7,14 +7,25 @@ import Header from './Header';
 import Filters from './filters/Filters';
 import CharacterList from './characters/CharacterList';
 import Character from './characters/Character';
+import CharacterDetail from './characters/CharacterDetail';
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
   const [filterByName, setFilterByName] = useState('');
-  const [filterByHouse, setFilterByHouse] = useState('');
+  const [filterByHouse, setFilterByHouse] = useState('Gryffindor');
 
   useEffect(() => {
-    getDataFromApi().then((cleanData) => {
+    getDataFromApi().then((dataFromApi) => {
+      const cleanData = dataFromApi.map((character) => {
+        if (character.image === '') {
+          character.image =
+            'https://placehold.co/200x270?text=No+Image+Available';
+        }
+        if (character.house === '') {
+          character.house = 'none';
+        }
+        return character;
+      });
       setCharacters(cleanData);
     });
   }, []);
@@ -28,14 +39,11 @@ const App = () => {
   };
 
   const filteredCharacters = characters
-  .filter((eachHouse)=>{
-    return eachHouse.house === filterByHouse;
-  })
-  .filter((char) =>
-    char.name.toLowerCase().includes(filterByName)
-  );
-  
-console.log(filteredCharacters);
+    .filter((char) => {
+      return char.house === filterByHouse;
+    })
+    .filter((char) => char.name.toLowerCase().includes(filterByName));
+
   return (
     <div className='main'>
       <Header />
@@ -50,14 +58,11 @@ console.log(filteredCharacters);
                 handleFilterByHouse={handleFilterByHouse}
                 filterByHouse={filterByHouse}
               />
-              <CharacterList characters={filteredCharacters} />
+              <CharacterList filteredCharacters={filteredCharacters} />
             </>
           }
         />
-        <Route
-          path='/character/:idCharacter'
-          element={<Character character={characters} />}
-        />
+        <Route path='/character/:idCharacter' element={<CharacterDetail />} />
       </Routes>
     </div>
   );

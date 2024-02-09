@@ -1,15 +1,15 @@
-import { Link } from 'react-router-dom';
 import '../../scss/layout/Character.scss';
+import { Link } from 'react-router-dom';
 import Character from './Character';
 
-const CharacterList = ({ characters }) => {
-  const renderCharacters = characters.map((char) => {
-    console.log(characters);
+const CharacterList = ({filteredCharacters}) => {
+  const renderCharacters = filteredCharacters.map((character) => {
     return (
-        <li className='card' key={char.id}>
-          <Character char={char} />
-        </li>
-        // {/*  <Link to={`/character/${character.id}`}> </Link> */}
+      <li className='card' key={character.id}>
+        <Link to={`/character/${character.id}`}>
+          <Character character={character}/>
+        </Link>
+      </li>
     );
   });
 
