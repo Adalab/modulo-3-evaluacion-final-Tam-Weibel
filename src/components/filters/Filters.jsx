@@ -1,13 +1,24 @@
 import FilterByHouse from './FilterByHouse';
 import FilterByName from './FilterByName';
 
-const Filters = () => {
+const Filters = ({
+  handleFilterByName,
+  filterByName,
+  handleFilterByHouse,
+  filterByHouse,
+}) => {
   return (
-    <div>
-      <FilterByHouse />
-      <FilterByName />
-    </div>
-  )
-}
+    <form className='form'>
+      <FilterByName
+        handleFilterByName={handleFilterByName}
+        filterByName={filterByName}
+      />
+      <FilterByHouse
+        handleFilterByHouse={handleFilterByHouse}
+        filterByHouse={filterByHouse}
+      />
+    </form>
+  );
+};
 
-export default Filters
+export default Filters;

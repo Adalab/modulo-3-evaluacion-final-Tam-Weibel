@@ -1,8 +1,19 @@
+import '../../scss/layout/Filter.scss';
 
-const FilterByName = () => {
+const FilterByName = ({ handleFilterByName, filterByName }) => {
+
   return (
-    <div>FilterByName</div>
-  )
-}
+    <fieldset className='fieldset'>
+      <label htmlFor='name'>Busca por personaje: </label>
+      <input
+        className='input'
+        type='text'
+        id='name'
+        value={filterByName}
+        onChange={(ev) => handleFilterByName(ev.target.value)}
+      />
+   </fieldset>
+  );
+};
 
-export default FilterByName
+export default FilterByName;

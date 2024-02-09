@@ -1,21 +1,15 @@
-import Character from './Character';
 import { Link } from 'react-router-dom';
 import '../../scss/layout/Character.scss';
+import Character from './Character';
 
 const CharacterList = ({ characters }) => {
-  const renderCharacters = characters.map((character) => {
+  const renderCharacters = characters.map((char) => {
     console.log(characters);
     return (
-      <li className='card' key={character.id}>
-        <img className='card__img' src={character.image} alt={character.name} />
-        <div className='card__info'>
-          <h4 className='card__info--title'>{character.name}</h4>
-          <p className='card__info--specs'>{character.species}</p>
-        </div>
-        {/* // <Link to={`/character/${character.id}`}>
-        //   <Character character={character} />
-        // </Link> */}
-      </li>
+        <li className='card' key={char.id}>
+          <Character char={char} />
+        </li>
+        // {/*  <Link to={`/character/${character.id}`}> </Link> */}
     );
   });
 

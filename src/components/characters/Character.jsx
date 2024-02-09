@@ -1,14 +1,14 @@
 import '../../scss/layout/Character.scss';
 
-const Character = (character) => {
+const Character = ({ char }) => {
   return (
-    <div>
-      <img className='card__img' src={character.image} alt={character.name} />
+    <>
+      <img className='card__img' src={char.image} alt={char.name} />
       <div className='card__info'>
-        <h4 className='card__info--title'>{character.name}</h4>
-        <p className='card__info--specs'>{character.species}</p>
+        <h4 className='card__info--title'>{char.name}</h4>
+        <p className='card__info--specs'>{char.species}</p>
       </div>
-    </div>
+    </>
   );
 };
 

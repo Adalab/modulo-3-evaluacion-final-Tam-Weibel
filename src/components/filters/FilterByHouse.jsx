@@ -1,8 +1,23 @@
+import '../../scss/layout/Filter.scss';
 
-const FilterByHouse = () => {
+const FilterByHouse = ({ handleFilterByHouse, filterByHouse }) => {
   return (
-    <div>FilterByHouse</div>
-  )
-}
+    <fieldset className='fieldset'>
+      <label htmlFor='house'>Selecciona la casa: </label>
+      <select
+        type='text'
+        id='house'
+        onChange={handleFilterByHouse}
+        className='input'
+      >
+        <option value='Gryffindor'>Gryffindor</option>
+        <option value='Ravenclaw'>Ravenclaw</option>
+        <option value='Slytherin'>Slytherin</option>
+        <option value='Hufflepuff'>Hufflepuff</option>
+        <option value='none'>Sin casa</option>
+      </select>
+    </fieldset>
+  );
+};
 
-export default FilterByHouse
+export default FilterByHouse;

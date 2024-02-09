@@ -6,6 +6,9 @@ const getDataFromApi = () => {
           if(character.image === ''){
             character.image ='https://placehold.co/200x270?text=No+Image+Available';
           }
+          if(character.house === ''){
+            character.house = 'none'
+          }
           return {
             id: character.id,
             image: character.image,
