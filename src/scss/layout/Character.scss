@@ -5,28 +5,36 @@
   flex-direction: column;
   height: 350px;
   width: 200px;
-  background-color: #C59E01;
+  background: linear-gradient(to right, #d77f3d, #f9dd30);
+  border-radius: 5px;
+
   &__img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     height: 270px;
     width: 200px;
-    background-image: contain;
+    background-image: cover;
   }
   &__info {
     padding: 10px;
     color: white;
-    
+
     &--title {
       font-size: 16px;
       font-family: Harry;
+      padding-bottom: 5px;
     }
     &--specs {
-      font-size: 14px;
+      font-size: 12px;
       text-transform: capitalize;
       font-family: Harry;
     }
   }
+  &__house {
+    width:20%;
+  }
 }
-.noResults{
+.noResults {
   color: white;
   font-family: Lumos;
   font-weight: bold;

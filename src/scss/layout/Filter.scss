@@ -9,6 +9,8 @@
     align-items: flex-start;
     align-content: center;
     gap: 10px;
+    border: 2px solid #D77F3D;
+    border-bottom: none;
 }
 .fieldset{
     border: none;
@@ -18,7 +20,8 @@
 .input{
     background-color: grey;
     color: white;
-    border: 2px solid #C59E01;
+    border: 2px solid #D77F3D;
     font-family: Harry;
     font-size: 16px;
+    padding: 3px;
 }

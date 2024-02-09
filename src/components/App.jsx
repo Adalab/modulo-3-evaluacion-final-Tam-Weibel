@@ -13,8 +13,8 @@ const noImage = 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXdpbHIycG85aW
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [filterByName, setFilterByName] = useState('');
-  const [filterByHouse, setFilterByHouse] = useState('Gryffindor');
+  const [filterByName, setFilterByName] = useState(ls.get('filterByName') || '');
+  const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouse') ||'Gryffindor');
 
   useEffect(() => {
     getDataFromApi().then((dataFromApi) => {
@@ -49,17 +49,22 @@ const App = () => {
     setFilterByHouse(value);
   };
 
+  ls.set('filterByName', filterByName)
+  ls.set('filterByHouse', filterByHouse)
+
   const filteredCharacters = characters
     .filter((char) => {
       return char.house === filterByHouse;
     })
     .filter((char) => char.name.toLowerCase().includes(filterByName));
 
-    const { pathname } = useLocation();
-    const routeData = matchPath("/character/:idCharacter", pathname)
-    const idCharacter = routeData !== null ? routeData.params.idCharacter : null;
-    const characterData = characters.find((char) => char.id === idCharacter);
 
+  const { pathname } = useLocation();
+  const routeData = matchPath("/character/:idCharacter", pathname)
+  const characterId = routeData !== null ? routeData.params.idCharacter : '';
+  const characterData = (characters.find((char) => char.id === characterId)) || (ls.get('characterData'));
+
+    // console.log(characterData);
   return (
     <div className='page'>
       <Header />
@@ -78,7 +83,7 @@ const App = () => {
             </>
           }
         />
-        <Route path='/character/:idCharacter' element={<CharacterDetail characterData={characterData}/>} />
+        <Route path='/character/:characterId' element={<CharacterDetail characterData={characterData}/>} />
       </Routes>
       <Footer />
     </div>

@@ -1,28 +1,58 @@
 import '../../scss/layout/CharacterDetail.scss';
+import ls from '../../services/localStorage';
+import Hufflepuff from '../../images/Hufflepuff.png';
+import Gryffindor from '../../images/Gryffindor.png';
+import Ravenclaw from '../../images/Ravenclaw.png';
+import Slytherin from '../../images/Slytherin.png';
+import none from '../../images/none.png';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
-const element = <FontAwesomeIcon icon={faAngleLeft} />
-const CharacterDetail = ({characterData}) => {
-  
+const element = <FontAwesomeIcon icon={faAngleLeft} />;
+const CharacterDetail = ({ characterData }) => {
+  ls.set('characterData', characterData)
+  console.log('characterData: ', {
+    id: characterData.id,
+    image: characterData.image,
+    name: characterData.name,
+    house: characterData.house,
+    species: characterData.species,
+    alive: characterData.alive,
+    gender: characterData.gender
+  })
+  const houseImage = () => {
+    let house;
+    if (characterData.house === 'Gryffindor') {
+      house = Gryffindor;
+    } else if (characterData.house === 'Ravenclaw') {
+      house = Ravenclaw;
+    } else if (characterData.house === 'Slytherin') {
+      house = Slytherin;
+    } else if (characterData.house === 'Hufflepuff') {
+      house = Hufflepuff;
+    } else if (characterData.house === 'none') {
+      house = none;
+    } return house
+  };
   return (
     <div className='detailPage'>
       <Link to='/'>
         <p className='return'>{element} volver</p>
       </Link>
       <div className='cardDetail'>
-        <img className='card__img' src={characterData.image} alt={characterData.name} />
-        <div className='card__info'>
-          <h4 className='card__info--title'>{characterData.name}</h4>
-          <p className='card__info--specs'>Genero: {characterData.gender}</p>
-          <p className='card__info--specs'>Estatus vital: {characterData.alive}</p>
-          <p className='card__info--specs'>Especie: {characterData.species}</p>
-          <p className='card__info--specs'>Casa: {characterData.house}</p>
+        <img className='detail__img' src={characterData.image} alt={characterData.name}/>
+        <div className='detail__info'>
+          <h4 className='detail__info--title'>{characterData.name}</h4>
+          <p className='detail__info--specs'>Genero: {characterData.gender}</p>
+          <p className='detail__info--specs'>Estatus vital: {characterData.alive}</p>
+          <p className='detail__info--specs'>Especie: {characterData.species}</p>
+          <p className='detail__info--specs'>Casa: {characterData.house}</p>
         </div>
+        <img className='detail__house' src={houseImage()} alt={characterData.house}/>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CharacterDetail
+export default CharacterDetail;
