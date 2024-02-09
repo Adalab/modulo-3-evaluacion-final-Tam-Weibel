@@ -1,6 +1,4 @@
 .card {
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -9,16 +7,36 @@
   &__img {
     height: 270px;
     width: 200px;
-    background-image: cover;
+    background-image: contain;
   }
   &__info {
     padding: 10px;
+    color: white;
+      font-family: Arial, Helvetica, sans-serif;
     &--title {
       font-size: 16px;
     }
     &--specs {
       font-size: 14px;
+      text-transform: capitalize;
     }
   }
-  
+}
+.return{
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: right;
+}
+.cardDetail{
+  background-color: #C59E01;
+  padding: 10px;
+  width: fit-content;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color:  white;
+  line-height: 1.5;
 }

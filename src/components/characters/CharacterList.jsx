@@ -16,7 +16,12 @@ const CharacterList = ({filteredCharacters}) => {
   return (
     <>
       <section className='characters'>
-        <ul className='cards'>{renderCharacters}</ul>
+        <ul className='cards'>{filteredCharacters.length !== 0 ? (
+            renderCharacters
+          ) : (
+            <li className='card__info'>{'No hay resultados para la búsqueda'}</li>
+          )}
+        </ul>
       </section>
     </>
   );

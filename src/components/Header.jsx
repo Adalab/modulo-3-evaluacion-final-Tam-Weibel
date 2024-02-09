@@ -3,9 +3,9 @@ import '../scss/layout/Header.scss'
 
 const Header = () => {
   return (
-    <div className='header'>
+    <figure className='header'>
       <img className='header__img' src={header} alt="Harry Potter" />
-    </div>
+    </figure>
   )
 }
 
