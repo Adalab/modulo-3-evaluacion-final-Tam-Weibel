@@ -19,7 +19,7 @@ const CharacterList = ({filteredCharacters}) => {
         <ul className='cards'>{filteredCharacters.length !== 0 ? (
             renderCharacters
           ) : (
-            <li className='card__info'>{'No hay resultados para la búsqueda'}</li>
+            <li className='noResults'>{'No hay resultados para la búsqueda'}</li>
           )}
         </ul>
       </section>

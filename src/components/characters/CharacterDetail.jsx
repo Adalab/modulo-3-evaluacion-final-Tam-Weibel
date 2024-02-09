@@ -1,4 +1,4 @@
-import '../../scss/layout/Character.scss';
+import '../../scss/layout/CharacterDetail.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
@@ -7,9 +7,9 @@ const element = <FontAwesomeIcon icon={faAngleLeft} />
 const CharacterDetail = ({characterData}) => {
   
   return (
-    <>
+    <div className='detailPage'>
       <Link to='/'>
-        <p className='return'>{element} Volver</p>
+        <p className='return'>{element} volver</p>
       </Link>
       <div className='cardDetail'>
         <img className='card__img' src={characterData.image} alt={characterData.name} />
@@ -21,7 +21,7 @@ const CharacterDetail = ({characterData}) => {
           <p className='card__info--specs'>Casa: {characterData.house}</p>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

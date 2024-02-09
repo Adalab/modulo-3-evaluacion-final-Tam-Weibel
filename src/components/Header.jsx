@@ -1,4 +1,5 @@
 import header from '../images/header.png'
+
 import '../scss/layout/Header.scss'
 
 const Header = () => {
