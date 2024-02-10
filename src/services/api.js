@@ -14,6 +14,9 @@ const getDataFromApi = () => {
         };
       });
       return dataFromApi;
+    })
+    .catch((error) => {
+      console.error('Error fetching data:', error);
     });
 };
 export default getDataFromApi;

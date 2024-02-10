@@ -18,7 +18,7 @@ const FilterByHouse = ({ handleFilterByHouse, filterByHouse, handleReset }) => {
         <option value='none'>Sin casa</option>
         <option value=''>Todos</option>
       </select>
-      <button className='reset' onClick={(ev) => handleReset(ev.currentTarget)}>Limpiar</button>
+      <button className='reset' onClick={handleReset}>Limpiar</button>
     </fieldset>
   );
 };

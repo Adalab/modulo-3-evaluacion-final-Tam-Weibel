@@ -23,11 +23,9 @@ const App = () => {
         character.image = character.image !== '' ? character.image : noImage;
         character.house = character.house !== '' ? character.house : 'none';
         character.gender = character.gender === 'female' ? 'mujer' : 'hombre';
-        character.alive =
-          character.alive === true ? 'vivo/a ❤️' : 'muerto/a 💀';
+        character.alive = character.alive ? 'vivo/a ❤️' : 'muerto/a 💀';
         return character;
       });
-      cleanData.sort((a, b) => a.name.localeCompare(b.name));
       setCharacters(cleanData);
     });
   }, []);
@@ -45,17 +43,18 @@ const App = () => {
 
   const filteredCharacters = characters
     .filter((char) => filterByHouse === '' || char.house === filterByHouse)
-    .filter((char) => char.name.toLowerCase().includes(filterByName));
+    .filter((char) => char.name.toLowerCase().includes(filterByName))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   const { pathname } = useLocation();
   const routeData = matchPath('/character/:idCharacter', pathname);
   const characterId = routeData !== null ? routeData.params.idCharacter : '';
-  const characterData = characters.find((char) => char.id === characterId) || ls.get('characterData');
+  const characterData =
+    characters.find((char) => char.id === characterId) ||
+    ls.get('characterData');
 
-  const handleReset = (value) => {
-    value.preventDefault;
-    ls.clear('filterByName');
-    ls.clear('filterByHouse');
+  const handleReset = () => {
+    ls.clear('filterByName', 'filterByHouse');
     setFilterByName('');
     setFilterByHouse('Gryffindor');
   };
