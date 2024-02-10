@@ -14,32 +14,17 @@ const noImage =
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [filterByName, setFilterByName] = useState(
-    ls.get('filterByName') || ''
-  );
-  const [filterByHouse, setFilterByHouse] = useState(
-    ls.get('filterByHouse') || 'Gryffindor'
-  );
+  const [filterByName, setFilterByName] = useState(ls.get('filterByName') || '');
+  const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouse') || 'Gryffindor');
 
   useEffect(() => {
     getDataFromApi().then((dataFromApi) => {
       const cleanData = dataFromApi.map((character) => {
-        if (character.image === '') {
-          character.image = noImage;
-        }
-        if (character.house === '') {
-          character.house = 'none';
-        }
-        if (character.gender === 'female') {
-          character.gender = 'mujer';
-        } else {
-          character.gender = 'hombre';
-        }
-        if (character.alive) {
-          character.alive = 'vivo/a ❤️';
-        } else {
-          character.alive = 'muerto/a 💀';
-        }
+        character.image = character.image !== '' ? character.image : noImage;
+        character.house = character.house !== '' ? character.house : 'none';
+        character.gender = character.gender === 'female' ? 'mujer' : 'hombre';
+        character.alive =
+          character.alive === true ? 'vivo/a ❤️' : 'muerto/a 💀';
         return character;
       });
       cleanData.sort((a, b) => a.name.localeCompare(b.name));
@@ -59,20 +44,13 @@ const App = () => {
   ls.set('filterByHouse', filterByHouse);
 
   const filteredCharacters = characters
-    .filter((char) => {
-      if (filterByHouse === '') {
-        return true;
-      }
-      return char.house === filterByHouse;
-    })
+    .filter((char) => filterByHouse === '' || char.house === filterByHouse)
     .filter((char) => char.name.toLowerCase().includes(filterByName));
 
   const { pathname } = useLocation();
   const routeData = matchPath('/character/:idCharacter', pathname);
   const characterId = routeData !== null ? routeData.params.idCharacter : '';
-  const characterData =
-    characters.find((char) => char.id === characterId) ||
-    ls.get('characterData');
+  const characterData = characters.find((char) => char.id === characterId) || ls.get('characterData');
 
   const handleReset = (value) => {
     value.preventDefault;
