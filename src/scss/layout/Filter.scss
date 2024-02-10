@@ -1,40 +1,62 @@
 .form {
-  background-color: rgb(168, 166, 166);
-  color: white;
+  background-color: 	#FFFFF0;
+  color: #2e0062;
   font-family: Harry;
-  padding: 20px 50px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: center;
-  gap: 10px;
+  gap: 20px;
   border: 2px solid #d77f3d;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   border-bottom: none;
+  @media (min-width: 768px){
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
 }
 .fieldset {
   border: none;
   display: flex;
-  align-items: center;
-  gap: 15px;
+  flex-direction: column;
+  gap: 5px;
   font-size: 16px;
   font-family: Harry;
+  @media (min-width: 768px){
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
 }
 .input {
-  background-color: grey;
-  color: white;
-  border: 2px solid #d77f3d;
+  background: linear-gradient(to right, #d77f3d, #f9dd30);
+  color: #2e0062;
+  border: 2px solid #6222c6;
+  border-radius: 0.3rem;
   font-family: Harry;
   font-size: 16px;
   padding: 3px;
+  &:hover {
+    box-shadow: 0px 0px 10px 1px #6222c6;
+  }
+  &:focus-visible{
+    outline: none;
+  }
 }
 .reset {
   cursor: pointer;
   font-family: Potter;
   text-transform: uppercase;
-  font-size: 24px;
-  color: white;
+  font-size: 30px;
+  color: transparent;
+  background: linear-gradient(to right, #d77f3d, #f9dd30);
+  -webkit-background-clip: text;
+  background-clip: text;
   border: none;
   background-color: rgb(168, 166, 166);
+  transition: all ease 0.3s;
   align-self: flex-end;
+  &:hover {
+    transform: scale(1.2);
+  }
 }

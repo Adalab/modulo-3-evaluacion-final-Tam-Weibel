@@ -1,8 +1,10 @@
-import '../../scss/layout/Character.scss';
+// import '../../scss/layout/Character.scss';
 import { Link } from 'react-router-dom';
 import Character from './Character';
 
 const CharacterList = ({filteredCharacters, filterByName}) => {
+  const noResults = "https://custom-doodle.com/wp-content/uploads/doodle/harry-potter-scar-glasses/harry-potter-scar-glasses-doodle.gif";
+
   const renderCharacters = filteredCharacters.map((character) => {
     return (
       <li className='card' key={character.id}>
@@ -19,7 +21,10 @@ const CharacterList = ({filteredCharacters, filterByName}) => {
         <ul className='cards'>{filteredCharacters.length !== 0 ? (
             renderCharacters
           ) : (
-            <li className='noResults'>No hay ningún personaje que coincida con la palabra {filterByName.toUpperCase()}</li>
+            <li className='noResults'>
+              <img className='noResults__img' src={noResults} alt="No results" />
+              <p className='noResults__text'>No hay ningún personaje que coincida con la palabra {filterByName.toUpperCase()}</p>
+            </li>
           )}
         </ul>
       </section>
