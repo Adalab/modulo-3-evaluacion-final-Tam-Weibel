@@ -9,24 +9,29 @@ const Filters = ({
   filterByHouse,
   handleFilterByGender,
   filterByGender,
-  handleReset
+  handleReset,
 }) => {
   return (
-    <form className='form'>
-      <FilterByName
-        handleFilterByName={handleFilterByName}
-        filterByName={filterByName}
-      />
-      <FilterByHouse
-        handleFilterByHouse={handleFilterByHouse}
-        filterByHouse={filterByHouse}
-      />
-      <FilterByGender
-        handleFilterByGender={handleFilterByGender}
-        filterByGender={filterByGender}
-      />
-      <button className='reset' onClick={handleReset}>Limpiar</button>
-    </form>
+    <>
+      <form className='form'>
+        <h2 className='form__title'>Busca tu personaje favorito:</h2>
+        <FilterByName
+          handleFilterByName={handleFilterByName}
+          filterByName={filterByName}
+        />
+        <FilterByHouse
+          handleFilterByHouse={handleFilterByHouse}
+          filterByHouse={filterByHouse}
+        />
+        <FilterByGender
+          handleFilterByGender={handleFilterByGender}
+          filterByGender={filterByGender}
+        />
+        <button className='reset' onClick={handleReset}>
+          Limpiar
+        </button>
+      </form>
+    </>
   );
 };
 

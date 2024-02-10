@@ -1,4 +1,4 @@
-// import '../../scss/layout/Character.scss';
+import '../../scss/layout/Character.scss';
 import { Link } from 'react-router-dom';
 import Character from './Character';
 
@@ -17,8 +17,9 @@ const CharacterList = ({filteredCharacters, filterByName}) => {
   
   return (
     <>
-      <section className='characters'>
-        <ul className='cards'>{filteredCharacters.length !== 0 ? (
+      <section className='cards'>
+        <h2 className='cards__title'>Resultados de tu busqueda:</h2>
+        <ul className='cards__list'>{filteredCharacters.length !== 0 ? (
             renderCharacters
           ) : (
             <li className='noResults'>

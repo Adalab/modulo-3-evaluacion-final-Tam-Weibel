@@ -1,4 +1,4 @@
-import '../../scss/layout/CardTest.scss';
+import '../../scss/layout/Character.scss';
 
 const Character = ({ character }) => {
   return (
