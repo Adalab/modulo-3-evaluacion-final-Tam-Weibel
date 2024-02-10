@@ -1,11 +1,14 @@
 import FilterByHouse from './FilterByHouse';
 import FilterByName from './FilterByName';
+import FilterByGender from './FilterByGender';
 
 const Filters = ({
   handleFilterByName,
   filterByName,
   handleFilterByHouse,
   filterByHouse,
+  handleFilterByGender,
+  filterByGender,
   handleReset
 }) => {
   return (
@@ -17,8 +20,12 @@ const Filters = ({
       <FilterByHouse
         handleFilterByHouse={handleFilterByHouse}
         filterByHouse={filterByHouse}
-        handleReset={handleReset}
       />
+      <FilterByGender
+        handleFilterByGender={handleFilterByGender}
+        filterByGender={filterByGender}
+      />
+      <button className='reset' onClick={handleReset}>Limpiar</button>
     </form>
   );
 };

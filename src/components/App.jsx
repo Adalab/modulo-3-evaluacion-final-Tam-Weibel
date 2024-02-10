@@ -16,6 +16,7 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [filterByName, setFilterByName] = useState(ls.get('filterByName') || '');
   const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouse') || 'Gryffindor');
+  const [filterByGender, setFilterByGender]= useState(ls.get('filterByGender') || '');
 
   useEffect(() => {
     getDataFromApi().then((dataFromApi) => {
@@ -38,11 +39,17 @@ const App = () => {
     setFilterByHouse(value);
   };
 
+  const handleFilterByGender = (value) => {
+    setFilterByGender(value);
+  };
+
   ls.set('filterByName', filterByName);
   ls.set('filterByHouse', filterByHouse);
+  ls.set('filterByGender', filterByGender);
 
   const filteredCharacters = characters
     .filter((char) => filterByHouse === '' || char.house === filterByHouse)
+    .filter((char) => filterByGender === '' || char.gender === filterByGender)
     .filter((char) => char.name.toLowerCase().includes(filterByName))
     .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -54,9 +61,10 @@ const App = () => {
     ls.get('characterData');
 
   const handleReset = () => {
-    ls.clear('filterByName', 'filterByHouse');
+    ls.clear('filterByName', 'filterByHouse', 'filterByGender');
     setFilterByName('');
     setFilterByHouse('Gryffindor');
+    setFilterByGender('');
   };
 
   return (
@@ -72,6 +80,8 @@ const App = () => {
                 filterByName={filterByName}
                 handleFilterByHouse={handleFilterByHouse}
                 filterByHouse={filterByHouse}
+                handleFilterByGender={handleFilterByGender}
+                filterByGender={filterByGender}
                 handleReset={handleReset}
               />
               <CharacterList
