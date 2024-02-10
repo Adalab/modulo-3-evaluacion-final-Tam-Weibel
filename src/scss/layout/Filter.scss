@@ -1,28 +1,38 @@
-.form{
-    background-color: rgb(168, 166, 166);
-    color: white;
-    font-family: Harry;
-    padding: 20px 50px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    align-content: center;
-    gap: 10px;
-    border: 2px solid #D77F3D;
-    border-bottom: none;
+.form {
+  background-color: rgb(168, 166, 166);
+  color: white;
+  font-family: Harry;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: center;
+  gap: 10px;
+  border: 2px solid #d77f3d;
+  border-bottom: none;
 }
-.fieldset{
-    border: none;
-    display: inline;
-    font-size: 16px;
-    font-family: Harry;
+.fieldset {
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  font-family: Harry;
 }
-.input{
-    background-color: grey;
-    color: white;
-    border: 2px solid #D77F3D;
-    font-family: Harry;
-    font-size: 16px;
-    padding: 3px;
+.input {
+  background-color: grey;
+  color: white;
+  border: 2px solid #d77f3d;
+  font-family: Harry;
+  font-size: 16px;
+  padding: 3px;
+}
+.reset {
+  font-family: Potter;
+  text-transform: uppercase;
+  font-size: 24px;
+  color: white;
+  border: none;
+  background-color: rgb(168, 166, 166);
 }

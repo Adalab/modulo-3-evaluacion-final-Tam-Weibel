@@ -6,6 +6,7 @@ const Filters = ({
   filterByName,
   handleFilterByHouse,
   filterByHouse,
+  handleReset
 }) => {
   return (
     <form className='form'>
@@ -16,6 +17,7 @@ const Filters = ({
       <FilterByHouse
         handleFilterByHouse={handleFilterByHouse}
         filterByHouse={filterByHouse}
+        handleReset={handleReset}
       />
     </form>
   );

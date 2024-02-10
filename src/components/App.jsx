@@ -42,7 +42,7 @@ const App = () => {
         }
         return character;
       });
-      cleanData.sort((a,b)=> a.name.localeCompare(b.name));
+      cleanData.sort((a, b) => a.name.localeCompare(b.name));
       setCharacters(cleanData);
     });
   }, []);
@@ -59,14 +59,13 @@ const App = () => {
   ls.set('filterByHouse', filterByHouse);
 
   const filteredCharacters = characters
-  .filter((char) => {
-    if (filterByHouse === '') {
-      return true;
-    }
-    return char.house === filterByHouse;
-  })
-  .filter((char) => char.name.toLowerCase().includes(filterByName));
-  
+    .filter((char) => {
+      if (filterByHouse === '') {
+        return true;
+      }
+      return char.house === filterByHouse;
+    })
+    .filter((char) => char.name.toLowerCase().includes(filterByName));
 
   const { pathname } = useLocation();
   const routeData = matchPath('/character/:idCharacter', pathname);
@@ -74,6 +73,14 @@ const App = () => {
   const characterData =
     characters.find((char) => char.id === characterId) ||
     ls.get('characterData');
+
+  const handleReset = (value) => {
+    value.preventDefault;
+    ls.clear('filterByName');
+    ls.clear('filterByHouse');
+    setFilterByName('');
+    setFilterByHouse('Gryffindor');
+  };
 
   return (
     <div className='page'>
@@ -88,6 +95,7 @@ const App = () => {
                 filterByName={filterByName}
                 handleFilterByHouse={handleFilterByHouse}
                 filterByHouse={filterByHouse}
+                handleReset={handleReset}
               />
               <CharacterList
                 filteredCharacters={filteredCharacters}

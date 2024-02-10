@@ -1,6 +1,6 @@
 import '../../scss/layout/Filter.scss';
 
-const FilterByHouse = ({ handleFilterByHouse, filterByHouse }) => {
+const FilterByHouse = ({ handleFilterByHouse, filterByHouse, handleReset }) => {
   return (
     <fieldset className='fieldset'>
       <label htmlFor='house'>Selecciona la casa: </label>
@@ -18,6 +18,7 @@ const FilterByHouse = ({ handleFilterByHouse, filterByHouse }) => {
         <option value='none'>Sin casa</option>
         <option value=''>Todos</option>
       </select>
+      <button className='reset' onClick={(ev) => handleReset(ev.currentTarget)}>Limpiar</button>
     </fieldset>
   );
 };
