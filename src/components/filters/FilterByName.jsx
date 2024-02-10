@@ -8,6 +8,7 @@ const FilterByName = ({ handleFilterByName, filterByName }) => {
       <input
         className='input'
         type='text'
+        name='name'
         id='name'
         value={filterByName}
         onChange={(ev) => handleFilterByName(ev.target.value)}

@@ -16,6 +16,7 @@ const FilterByHouse = ({ handleFilterByHouse, filterByHouse }) => {
         <option value='Slytherin'>Slytherin</option>
         <option value='Hufflepuff'>Hufflepuff</option>
         <option value='none'>Sin casa</option>
+        <option value=''>Todos</option>
       </select>
     </fieldset>
   );

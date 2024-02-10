@@ -12,15 +12,7 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 const element = <FontAwesomeIcon icon={faAngleLeft} />;
 const CharacterDetail = ({ characterData }) => {
   ls.set('characterData', characterData)
-  console.log('characterData: ', {
-    id: characterData.id,
-    image: characterData.image,
-    name: characterData.name,
-    house: characterData.house,
-    species: characterData.species,
-    alive: characterData.alive,
-    gender: characterData.gender
-  })
+ 
   const houseImage = () => {
     let house;
     if (characterData.house === 'Gryffindor') {
@@ -45,7 +37,7 @@ const CharacterDetail = ({ characterData }) => {
         <div className='detail__info'>
           <h4 className='detail__info--title'>{characterData.name}</h4>
           <p className='detail__info--specs'>Genero: {characterData.gender}</p>
-          <p className='detail__info--specs'>Estatus vital: {characterData.alive}</p>
+          <p className='detail__info--specs'>Estatus: {characterData.alive}</p>
           <p className='detail__info--specs'>Especie: {characterData.species}</p>
           <p className='detail__info--specs'>Casa: {characterData.house}</p>
         </div>
