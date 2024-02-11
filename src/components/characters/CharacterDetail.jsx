@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
-const element = <FontAwesomeIcon icon={faAngleLeft} />;
+const angleLeft = <FontAwesomeIcon icon={faAngleLeft} />;
 const CharacterDetail = ({ characterData }) => {
   ls.set('characterData', characterData)
  
@@ -30,7 +30,7 @@ const CharacterDetail = ({ characterData }) => {
   return (
     <div className='detailPage'>
       <Link to='/'>
-        <p className='return'>{element} volver</p>
+        <p className='return'>{angleLeft} volver</p>
       </Link>
       <div className='detail'>
         <img className='detail__img' src={characterData.image} alt={characterData.name}/>

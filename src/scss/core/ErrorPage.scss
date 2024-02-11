@@ -1,0 +1,39 @@
+@import './Variables.scss';
+
+.errorPage {
+    background-color: #fef7f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    &__title{
+        font-family: Potter;
+        font-size: 36px;
+        color: $darkpurple;
+        text-align: center;
+    }
+    &__figure{
+        width: 40%;
+        &--img{
+            width: 100%;
+            background-image: cover;
+        }
+    }
+    &__text{
+        font-family: Harry;
+        font-size: 14px;
+        color: $darkpurple;
+        text-align: center;
+    }
+    @media (min-width: 768px){
+        padding: 40px;
+        &__title{
+            font-size: 60px;
+        }
+        &__text{
+            font-size: 24px;
+        }
+    }
+}

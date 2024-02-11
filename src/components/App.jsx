@@ -8,7 +8,7 @@ import Footer from './Footer';
 import Filters from './filters/Filters';
 import CharacterList from './characters/CharacterList';
 import CharacterDetail from './characters/CharacterDetail';
-
+import ErrorPage from './ErrorPage';
 const noImage =
   'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXdpbHIycG85aWx1a2NweTkxZmFqdnVpMWNmZzQ5d2lrc2t4a2pyZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3zhxq2ttgN6rEw8SDx/giphy.gif';
 
@@ -90,15 +90,18 @@ const App = () => {
                   filterByName={filterByName}
                 />
               </>
-            }
-          />
-          <Route
-            path='/character/:characterId'
-            element={<CharacterDetail characterData={characterData} />}
-          />
+            }/>
+            <Route
+              path='/character/:characterId'
+              element={characterData ? (
+                  <CharacterDetail characterData={characterData} />
+                ) : (
+                  <ErrorPage />
+                )
+              }
+            />
         </Routes>
       </main>
-      
       <Footer />
     </div>
   );
