@@ -1,9 +1,13 @@
 @import './core/Reset.scss';
 @import './core/Variables.scss';
 
-.page{
-    height: 100%;
-    background-color: #6222c6;
-    padding: 20px;
+.body {
+  height: 100%;
+  background-color: $purple;
+  padding: 20px;
 }
-
+.main {
+  background-color: $white;
+  border: 3px solid $darkpurple;
+  border-radius: 10px;
+}

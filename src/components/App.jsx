@@ -68,34 +68,37 @@ const App = () => {
   };
 
   return (
-    <div className='page'>
+    <div className='body'>
       <Header />
-      <Routes>
-        <Route
-          path='/'
-          element={
-            <>
-              <Filters
-                handleFilterByName={handleFilterByName}
-                filterByName={filterByName}
-                handleFilterByHouse={handleFilterByHouse}
-                filterByHouse={filterByHouse}
-                handleFilterByGender={handleFilterByGender}
-                filterByGender={filterByGender}
-                handleReset={handleReset}
-              />
-              <CharacterList
-                filteredCharacters={filteredCharacters}
-                filterByName={filterByName}
-              />
-            </>
-          }
-        />
-        <Route
-          path='/character/:characterId'
-          element={<CharacterDetail characterData={characterData} />}
-        />
-      </Routes>
+      <main className='main'>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <>
+                <Filters
+                  handleFilterByName={handleFilterByName}
+                  filterByName={filterByName}
+                  handleFilterByHouse={handleFilterByHouse}
+                  filterByHouse={filterByHouse}
+                  handleFilterByGender={handleFilterByGender}
+                  filterByGender={filterByGender}
+                  handleReset={handleReset}
+                />
+                <CharacterList
+                  filteredCharacters={filteredCharacters}
+                  filterByName={filterByName}
+                />
+              </>
+            }
+          />
+          <Route
+            path='/character/:characterId'
+            element={<CharacterDetail characterData={characterData} />}
+          />
+        </Routes>
+      </main>
+      
       <Footer />
     </div>
   );

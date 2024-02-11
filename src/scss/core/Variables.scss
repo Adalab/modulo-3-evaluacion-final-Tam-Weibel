@@ -1,18 +1,22 @@
+//fonts
 @font-face {
     font-family: Harry;
     src: url('../../fonts/Harrypotter.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
     font-family: Potter;
     src: url('../../fonts/HARRYP__.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-  
-body {
-    // font-family: Lumos;
-}
+
+//colors
+$white: #fffff0;
+$purple:#6222c6;
+$darkpurple: #2e0062;
+$yellow: #f9dd30;
+$orange: #d77f3d;
+$transparent: rgb(168, 166, 166);
   

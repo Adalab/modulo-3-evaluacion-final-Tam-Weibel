@@ -2,8 +2,8 @@ import '../../scss/layout/Filter.scss';
 
 const FilterByHouse = ({ handleFilterByHouse, filterByHouse }) => {
   return (
-    <fieldset className='fieldset'>
-      <label htmlFor='house'>Selecciona la casa: </label>
+    <fieldset className='fieldset byHouse'>
+      <label htmlFor='house'>Busca por casa: </label>
       <select
         type='text'
         id='house'

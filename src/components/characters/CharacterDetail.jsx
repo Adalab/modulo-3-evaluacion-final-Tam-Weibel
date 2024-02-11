@@ -32,7 +32,7 @@ const CharacterDetail = ({ characterData }) => {
       <Link to='/'>
         <p className='return'>{element} volver</p>
       </Link>
-      <div className='cardDetail'>
+      <div className='detail'>
         <img className='detail__img' src={characterData.image} alt={characterData.name}/>
         <div className='detail__info'>
           <h4 className='detail__info--title'>{characterData.name}</h4>

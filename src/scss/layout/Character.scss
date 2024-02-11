@@ -1,19 +1,14 @@
 @import '../core/Variables.scss';
 
-.cards{
-  background-color: 	#FFFFF0;
-  border: 2px solid #2e0062;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-top: none;
-  &__title{
+.cards {
+  &__title {
     text-align: center;
     padding: 30px;
     font-family: Harry;
-    color: #2e0062;
+    color: $darkpurple;
     font-size: 18px;
   }
-  &__list{
+  &__list {
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -22,14 +17,14 @@
     gap: 20px;
     padding: 20px;
   }
-  @media (min-width: 768px){
-    &__title{
+  @media (min-width: 768px) {
+    &__title {
       font-size: 24px;
     }
   }
 }
 .card {
-  color: #fffff0;
+  color: $white;
   position: relative;
   font-family: Harry;
   &::after {
@@ -43,12 +38,12 @@
     border: 1px solid;
   }
   &__info {
-    color: #2e0062;
+    color: $darkpurple;
     width: 11em;
     height: 17em;
     padding: 1rem;
-    background: linear-gradient(to bottom right, #f9dd30, #d77f3d);
-    border: 1px solid #f9dd30;
+    background: linear-gradient(to bottom right, $yellow, $orange);
+    border: 1px solid $yellow;
     border-radius: 0.7rem;
     transition: all ease 0.3s;
     display: flex;
@@ -66,7 +61,7 @@
       font-size: 0.6rem;
     }
     &:hover {
-      box-shadow: 0px 0px 20px 1px #2e0062;
+      box-shadow: 0px 0px 20px 1px $darkpurple;
       transform: scale(1.1) translateY(-3px);
     }
   }
@@ -80,14 +75,14 @@
     width: 50%;
   }
   &__text {
-    color: #2e0062;
+    color: $darkpurple;
     font-family: Harry;
     font-size: 14px;
     text-align: center;
   }
-  @media (min-width: 768px){
-	  &__text {
-		font-size: 20px;
-	  }
+  @media (min-width: 768px) {
+    &__text {
+      font-size: 20px;
+    }
   }
 }

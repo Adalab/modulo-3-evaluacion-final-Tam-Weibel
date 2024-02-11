@@ -2,8 +2,8 @@ import '../../scss/layout/Filter.scss';
 
 const FilterByGender = ({ handleFilterByGender, filterByGender }) => {
   return (
-    <fieldset className='fieldset'>
-      <label htmlFor='gender'>Selecciona el genero: </label>
+    <fieldset className='fieldset byGender'>
+      <label htmlFor='gender'>Busca por genero: </label>
       <select
         type='text'
         id='gender'
