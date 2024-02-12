@@ -24,7 +24,7 @@ const CharacterList = ({filteredCharacters, filterByName}) => {
             renderCharacters
           ) : (
             <li className='noResults'>
-              <p className='noResults__text'>No hay ningún personaje que coincida con la palabra {filterByName.toUpperCase()}</p>
+              <p className='noResults__text'>No hay ningún personaje con <span className='noResults__text--word'>{filterByName.toUpperCase()}</span> en el nombre y con esos criterios de búsqueda.</p>
               <img className='noResults__img' src={noResults} alt="No results" />
             </li>
           )}

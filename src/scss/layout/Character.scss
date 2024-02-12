@@ -79,6 +79,9 @@
     font-family: Harry;
     font-size: 14px;
     text-align: center;
+    &--word{
+      color: $orange;
+    }
   }
   @media (min-width: 768px) {
     &__text {

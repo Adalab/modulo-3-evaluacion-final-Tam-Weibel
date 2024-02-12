@@ -75,13 +75,15 @@
   border: none;
   background-color: $transparent;
   transition: all ease 0.3s;
-  text-align: right;
+  text-align: center;
   &:hover {
     transform: scale(1.2);
   }
   @media (min-width: 768px){
     padding-right: 20px;
     grid-column: 2/3;
+    padding-right: 50px;
+    text-align: right;
   }
 }
 @media(min-width: 768px){

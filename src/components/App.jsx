@@ -8,17 +8,25 @@ import Footer from './Footer';
 import Filters from './filters/Filters';
 import CharacterList from './characters/CharacterList';
 import CharacterDetail from './characters/CharacterDetail';
-import ErrorPage from './ErrorPage';
+import NotFoundPage from './NotFoundPage';
 
 const noImage =
   'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXdpbHIycG85aWx1a2NweTkxZmFqdnVpMWNmZzQ5d2lrc2t4a2pyZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3zhxq2ttgN6rEw8SDx/giphy.gif';
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [filterByName, setFilterByName] = useState(ls.get('filterByName') || '');
-  const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouse') || 'Gryffindor');
-  const [filterByGender, setFilterByGender]= useState(ls.get('filterByGender') || '');
-  const [filterBySpecies, setFilterBySpecies] = useState(ls.get('filterBySpecies') || '');
+  const [filterByName, setFilterByName] = useState(
+    ls.get('filterByName') || ''
+  );
+  const [filterByHouse, setFilterByHouse] = useState(
+    ls.get('filterByHouse') || ''
+  );
+  const [filterByGender, setFilterByGender] = useState(
+    ls.get('filterByGender') || ''
+  );
+  const [filterBySpecies, setFilterBySpecies] = useState(
+    ls.get('filterBySpecies') || ''
+  );
 
   useEffect(() => {
     getDataFromApi().then((dataFromApi) => {
@@ -47,7 +55,6 @@ const App = () => {
 
   const handleFilterBySpecies = (value) => {
     setFilterBySpecies(value);
-    
   };
 
   ls.set('filterByName', filterByName);
@@ -60,7 +67,9 @@ const App = () => {
     .filter((char) => filterByGender === '' || char.gender === filterByGender)
     .filter((char) => char.name.toLowerCase().includes(filterByName))
     .sort((a, b) => a.name.localeCompare(b.name))
-    .filter((char) => filterBySpecies === '' || char.species === filterBySpecies);
+    .filter(
+      (char) => filterBySpecies === '' || char.species === filterBySpecies
+    );
 
   const { pathname } = useLocation();
   const routeData = matchPath('/character/:idCharacter', pathname);
@@ -71,9 +80,14 @@ const App = () => {
 
   const handleReset = (event) => {
     event.preventDefault();
-    ls.clear('filterByName', 'filterByHouse', 'filterByGender', 'filterBySpecies');
+    ls.clear(
+      'filterByName',
+      'filterByHouse',
+      'filterByGender',
+      'filterBySpecies'
+    );
     setFilterByName('');
-    setFilterByHouse('Gryffindor');
+    setFilterByHouse('');
     setFilterByGender('');
     setFilterBySpecies('');
   };
@@ -83,6 +97,7 @@ const App = () => {
       <Header />
       <main className='main'>
         <Routes>
+          <Route path='*' element={<NotFoundPage />} />
           <Route
             path='/'
             element={
@@ -104,16 +119,18 @@ const App = () => {
                   filterByName={filterByName}
                 />
               </>
-            }/>
-            <Route
-              path='/character/:characterId'
-              element={characterData ? (
-                  <CharacterDetail characterData={characterData} />
-                ) : (
-                  <ErrorPage />
-                )
-              }
-            />
+            }
+          />
+          <Route
+            path='/character/:characterId'
+            element={
+              characterData ? (
+                <CharacterDetail characterData={characterData} />
+              ) : (
+                <NotFoundPage />
+              )
+            }
+          />
         </Routes>
       </main>
       <Footer />
