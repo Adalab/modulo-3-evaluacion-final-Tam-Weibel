@@ -39,6 +39,7 @@ const CharacterDetail = ({ characterData }) => {
           <h4 className='detail__info--title'>{characterData.name}</h4>
           <p className='detail__info--specs'>Genero: {characterData.gender}</p>
           <p className='detail__info--specs'>Estatus: {characterData.alive}</p>
+          <p className='detail__info--specs'>Ascendencia: {characterData.ancestry}</p>
           <p className='detail__info--specs'>Especie: {characterData.species}</p>
           <p className='detail__info--specs'>Casa: {characterData.house}</p>
         </div>

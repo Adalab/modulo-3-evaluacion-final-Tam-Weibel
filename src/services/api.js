@@ -10,7 +10,8 @@ const getDataFromApi = () => {
           house: character.house,
           species: character.species,
           alive: character.alive,
-          gender: character.gender
+          gender: character.gender,
+          ancestry: character.ancestry
         };
       });
       return dataFromApi;
