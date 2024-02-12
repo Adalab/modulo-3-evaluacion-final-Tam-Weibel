@@ -35,6 +35,7 @@ const App = () => {
         character.house = character.house !== '' ? character.house : 'none';
         character.gender = character.gender === 'female' ? 'mujer' : 'hombre';
         character.alive = character.alive ? 'vivo/a ❤️' : 'muerto/a 💀';
+        character.house = character.ancestry !== '' ? character.ancestry : 'no se conoce';
         return character;
       });
       setCharacters(cleanData);
