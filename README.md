@@ -28,3 +28,6 @@ Afinar la maquetación: hay libertad para decidir los estilos a aplicar.
 
 ## End result
 Se presenta un producto que cumple todos los requisitos y los bonus propuestos.
+
+## Notes
+Mi rama master es la Dev. No sé explicar el motivo pero no tengo rama Main. Esta establecida la rama Dev como la default pero no sé explicar como se ha podido cambiar eso ya que no sabía que eso se podía hacer. Pensaba que había creado correctamente la rama Dev al comenzar a trabajar pero se ve que obviamente no ha sido así.
