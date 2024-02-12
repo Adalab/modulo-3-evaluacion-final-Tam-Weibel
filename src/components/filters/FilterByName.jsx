@@ -1,10 +1,11 @@
 import '../../scss/layout/Filter.scss';
+import PropTypes from 'prop-types';
 
 const FilterByName = ({ handleFilterByName, filterByName }) => {
 
   return (
     <fieldset className='fieldset byName'>
-      <label htmlFor='name'>Busca por personaje: </label>
+      <label htmlFor='name'>Busca por nombre de personaje: </label>
       <input
         className='input '
         type='text'
@@ -15,6 +16,10 @@ const FilterByName = ({ handleFilterByName, filterByName }) => {
       />
    </fieldset>
   );
+};
+FilterByName.propTypes = {
+  handleFilterByName: PropTypes.func.isRequired,
+  filterByName: PropTypes.string.isRequired,
 };
 
 export default FilterByName;

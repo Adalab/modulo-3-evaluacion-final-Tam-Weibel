@@ -9,6 +9,7 @@ import Filters from './filters/Filters';
 import CharacterList from './characters/CharacterList';
 import CharacterDetail from './characters/CharacterDetail';
 import ErrorPage from './ErrorPage';
+
 const noImage =
   'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXdpbHIycG85aWx1a2NweTkxZmFqdnVpMWNmZzQ5d2lrc2t4a2pyZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3zhxq2ttgN6rEw8SDx/giphy.gif';
 
@@ -17,6 +18,7 @@ const App = () => {
   const [filterByName, setFilterByName] = useState(ls.get('filterByName') || '');
   const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouse') || 'Gryffindor');
   const [filterByGender, setFilterByGender]= useState(ls.get('filterByGender') || '');
+  const [filterBySpecies, setFilterBySpecies] = useState(ls.get('filterBySpecies') || '');
 
   useEffect(() => {
     getDataFromApi().then((dataFromApi) => {
@@ -43,15 +45,22 @@ const App = () => {
     setFilterByGender(value);
   };
 
+  const handleFilterBySpecies = (value) => {
+    setFilterBySpecies(value);
+    
+  };
+
   ls.set('filterByName', filterByName);
   ls.set('filterByHouse', filterByHouse);
   ls.set('filterByGender', filterByGender);
+  ls.set('filterBySpecies', filterBySpecies);
 
   const filteredCharacters = characters
     .filter((char) => filterByHouse === '' || char.house === filterByHouse)
     .filter((char) => filterByGender === '' || char.gender === filterByGender)
     .filter((char) => char.name.toLowerCase().includes(filterByName))
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .filter((char) => filterBySpecies === '' || char.species === filterBySpecies);
 
   const { pathname } = useLocation();
   const routeData = matchPath('/character/:idCharacter', pathname);
@@ -60,11 +69,13 @@ const App = () => {
     characters.find((char) => char.id === characterId) ||
     ls.get('characterData');
 
-  const handleReset = () => {
-    ls.clear('filterByName', 'filterByHouse', 'filterByGender');
+  const handleReset = (event) => {
+    event.preventDefault();
+    ls.clear('filterByName', 'filterByHouse', 'filterByGender', 'filterBySpecies');
     setFilterByName('');
     setFilterByHouse('Gryffindor');
     setFilterByGender('');
+    setFilterBySpecies('');
   };
 
   return (
@@ -84,6 +95,9 @@ const App = () => {
                   handleFilterByGender={handleFilterByGender}
                   filterByGender={filterByGender}
                   handleReset={handleReset}
+                  handleFilterBySpecies={handleFilterBySpecies}
+                  filterBySpecies={filterBySpecies}
+                  filteredCharacters={filteredCharacters}
                 />
                 <CharacterList
                   filteredCharacters={filteredCharacters}

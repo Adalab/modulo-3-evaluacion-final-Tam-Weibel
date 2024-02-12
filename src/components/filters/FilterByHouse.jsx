@@ -1,4 +1,5 @@
 import '../../scss/layout/Filter.scss';
+import PropTypes from 'prop-types';
 
 const FilterByHouse = ({ handleFilterByHouse, filterByHouse }) => {
   return (
@@ -21,6 +22,10 @@ const FilterByHouse = ({ handleFilterByHouse, filterByHouse }) => {
 
     </fieldset>
   );
+};
+FilterByHouse.propTypes = {
+  handleFilterByHouse: PropTypes.func.isRequired,
+  filterByHouse: PropTypes.string.isRequired,
 };
 
 export default FilterByHouse;

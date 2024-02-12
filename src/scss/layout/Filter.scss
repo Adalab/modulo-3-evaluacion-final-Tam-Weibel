@@ -13,7 +13,7 @@
   @media (min-width: 768px){
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     &__title{
       font-size: 24px;
       grid-column: span 3;
@@ -24,7 +24,7 @@
   border: none;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   font-size: 16px;
   font-family: Harry;
   @media (min-width: 768px){
@@ -47,6 +47,20 @@
   }
   &:focus-visible{
     outline: none;
+  }
+}
+.genderOptions{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  &__label{
+    display: flex;
+    gap:10px;
+  }
+  @media (min-width:768px){
+    flex-direction: row;
+    
   }
 }
 .reset {
@@ -75,9 +89,15 @@
     grid-column: span 3;
   }
   .byHouse{
+    grid-row: 3/4;
     grid-column: 1/2;
   }
-  .byGender{
+  .bySpecies{
+    grid-row: 3/4;
     grid-column: 2/3;
   }
+  .byGender{
+    grid-column: span 3;
+  }
+  
 }

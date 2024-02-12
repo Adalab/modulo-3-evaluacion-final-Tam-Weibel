@@ -8,6 +8,7 @@ import none from '../../images/none.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
 const angleLeft = <FontAwesomeIcon icon={faAngleLeft} />;
 const CharacterDetail = ({ characterData }) => {
@@ -32,7 +33,7 @@ const CharacterDetail = ({ characterData }) => {
       <Link to='/'>
         <p className='return'>{angleLeft} volver</p>
       </Link>
-      <div className='detail'>
+      <article className='detail'>
         <img className='detail__img' src={characterData.image} alt={characterData.name}/>
         <div className='detail__info'>
           <h4 className='detail__info--title'>{characterData.name}</h4>
@@ -42,9 +43,12 @@ const CharacterDetail = ({ characterData }) => {
           <p className='detail__info--specs'>Casa: {characterData.house}</p>
         </div>
         <img className='detail__house' src={houseImage()} alt={characterData.house}/>
-      </div>
+      </article>
     </div>
   );
+};
+CharacterDetail.propTypes = {
+  characterData: PropTypes.object.isRequired,
 };
 
 export default CharacterDetail;

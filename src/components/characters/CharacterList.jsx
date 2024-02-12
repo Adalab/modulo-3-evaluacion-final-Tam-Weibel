@@ -1,6 +1,7 @@
 import '../../scss/layout/Character.scss';
 import { Link } from 'react-router-dom';
 import Character from './Character';
+import PropTypes from 'prop-types';
 
 const CharacterList = ({filteredCharacters, filterByName}) => {
   const noResults = "https://custom-doodle.com/wp-content/uploads/doodle/harry-potter-scar-glasses/harry-potter-scar-glasses-doodle.gif";
@@ -31,6 +32,10 @@ const CharacterList = ({filteredCharacters, filterByName}) => {
       </section>
     </>
   );
+};
+CharacterList.propTypes = {
+  filteredCharacters: PropTypes.array.isRequired,
+  filterByName: PropTypes.string.isRequired,
 };
 
 export default CharacterList;
