@@ -9,12 +9,7 @@ El producto final debe estar disponible y funcionando en un repositorio de Adala
 ## How: 
 La estructura de la applicación debe tener un formulario con un input de texto para el usuario y una serie de filtros. Los resultados se mostrarán en un listado. Para cada resultado se mostrará una tarjeta con la imagen, nombre y especie del personaje. Para los personajes que en la api no tienen url de imagen se les añade una por defecto.
 
-Se debe poder filtrar los personajes por nombre y por casa a la que pertenecen. Por defecto debía estar siempre la opción de 'Gryffindor' seleccionada en el filtro de la casa pero se ha optado por cambiarlo por el de 'Todos' ya que tiene más sentido para la aplicación. Para dejarlo en Gryffindor se cambiarina los siguientes valores en App.jsx:
-    - En la variable de estado de filterByHouse se cambiaría su estado inicial en el useState de '' a 'Gryffindor'. Quedando asi:
-        const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouse') || 'Gryffindor');
-
-    - En la función de handleReset se cambiaría también el estado al q se cambiaría filterByHouse de '' a 'Gryffindor'. Quedando asi:
-        setFilterByHouse('Gryffindor');
+Se debe poder filtrar los personajes por nombre y por casa a la que pertenecen. Por defecto debe estar siempre la opción de 'Gryffindor' seleccionada en el filtro de la casa.
 
 Utilizando las rutas y React Router DOM, al pinchar en un resultado de la lista se mostrará otra tarjeta con la imagen e información más detallada del personaje.
 

@@ -19,7 +19,7 @@ const App = () => {
     ls.get('filterByName') || ''
   );
   const [filterByHouse, setFilterByHouse] = useState(
-    ls.get('filterByHouse') || ''
+    ls.get('filterByHouse') || 'Gryffindor'
   );
   const [filterByGender, setFilterByGender] = useState(
     ls.get('filterByGender') || ''
@@ -87,7 +87,7 @@ const App = () => {
       'filterBySpecies'
     );
     setFilterByName('');
-    setFilterByHouse('');
+    setFilterByHouse('Gryffindor');
     setFilterByGender('');
     setFilterBySpecies('');
   };
