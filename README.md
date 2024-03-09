@@ -1,33 +1,30 @@
-# modulo-3-evaluacion-final-Tam-Weibel
+# Modulo-3-Final-Evaluation-Tam-Weibel
 
-## What:
-El ejercicio consiste en desarollar una applicación web de búsqueda de personajes del mundo de Harry Potter en la base de datos de la HP-API. 
+## Description
 
-## When & where:
-El producto final debe estar disponible y funcionando en un repositorio de Adalab en GitHub y publicado en GitHub Pages el lunes 12 de febrero a las 14:00 CET.
+The project involves the development of a web application for searching characters from the world of Harry Potter using the HP-API database. The application structure includes a user-friendly form with a text input and various filters. Results are displayed in a list, with each character represented by a card showing their image, name, and species. Characters without a URL for an image in the API are assigned a default image.
 
-## How: 
-La estructura de la applicación debe tener un formulario con un input de texto para el usuario y una serie de filtros. Los resultados se mostrarán en un listado. Para cada resultado se mostrará una tarjeta con la imagen, nombre y especie del personaje. Para los personajes que en la api no tienen url de imagen se les añade una por defecto.
+Additionally, users can filter characters by name and house, with 'Gryffindor' set as the default option in the house filter. Leveraging routes and React Router DOM, clicking on a result in the list reveals a more detailed card with an image and additional character information.
 
-Se debe poder filtrar los personajes por nombre y por casa a la que pertenecen. Por defecto debe estar siempre la opción de 'Gryffindor' seleccionada en el filtro de la casa.
+## Features
 
-Utilizando las rutas y React Router DOM, al pinchar en un resultado de la lista se mostrará otra tarjeta con la imagen e información más detallada del personaje.
+- User-friendly form with text input and filters.
+- Character cards displaying image, name, and species.
+- Default image for characters without a specified URL.
+- Filtering options by name and house, defaulting to 'Gryffindor.'
+- Detailed character information through React Router DOM.
 
-## Extras:
-URL compartible: si la usuaria navega a una URL inexistente se le muestra una mensaje para avisarle de que la página no existe.
+## Extras
 
-Ordenación: el listado de resultados se muestra en orden alfabético.
+- Shareable URL: A message notifies users if they navigate to a nonexistent URL.
+- Sorting: Results are presented in alphabetical order.
+- Additional filters: Gender filter with radio inputs and species filter generating options from the character list.
+- Reset button: Restores all filters to their initial state.
+- Stylish design: Freedom to decide on and implement the application's visual style.
 
-Más filtros: se han añadido dos.
-    - Un filtro por género con inputs de tipo radio con tres valores pre-establecidos.
-    _ Un filtro por especie que genera directamente la lista de opciones para seleccionar a partir del listado de personajes facilitado.
+## How to Use
 
-Botón de reset: al accionarlo todos los filtros vuelven a su estado inicial.
-
-Afinar la maquetación: hay libertad para decidir los estilos a aplicar.
-
-## End result
-Se presenta un producto que cumple todos los requisitos y los bonus propuestos.
-
-## Notes
-Mi rama master es la Dev. No sé explicar el motivo pero no tengo rama Main. Esta establecida la rama Dev como la default pero no sé explicar como se ha podido cambiar eso ya que no sabía que eso se podía hacer. Pensaba que había creado correctamente la rama Dev al comenzar a trabajar pero se ve que obviamente no ha sido así.
+1. Fill out the form with the desired search criteria.
+2. Explore the list of characters and click on a card for detailed information.
+3. Use additional filters, such as gender and species, for a refined search.
+4. Enjoy a well-designed and user-friendly interface.
